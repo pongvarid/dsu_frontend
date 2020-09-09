@@ -1,14 +1,18 @@
  <template>
   <div>
+    <Navbar/>
     <router-view />
   </div>
 </template>
 
     <script>
+    import Navbar from '@/components/share/Navbar';
 export default {
   name: "Root",
   /*-------------------------ประกาศ components ---------------------------------------*/
-  components: {},
+  components: {
+    Navbar
+  },
   /*-------------------------รับค่าเมื่อเราเป็น components---------------------------------------*/
   props: {},
   /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
