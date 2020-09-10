@@ -176,7 +176,7 @@
 
     <div class="container mx-auto mt-8">
         <div class="flex flex-col justify-center items-center">
-            <h2 class="text-3xl">หอพัก</h2>
+            <h2 class="text-3xl">หอพัก 4444</h2>
         </div>
         <div class="flex flex-row flex-wrap">
             <div v-for="i in 20" :key="i" class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
