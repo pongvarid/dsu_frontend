@@ -1,16 +1,16 @@
 <template>
-<div>
-    <div id="up" class="bg-up bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen relative">
+<div class="bg-gray-200">
+    <div class="bg-up bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen  relative">
         <!-- Overlay Background + Center Control -->
         <div class="h-screen bg-opacity-50 bg-black flex items-center justify-center" style="background:rgba(0,0,0,0.3);">
-            <div class="mx-2 text-center bg-white rounded-lg shadow-2xl p-4 w-full md:w-5/12"> 
+            <div class="mx-2 text-center bg-white rounded-lg shadow-2xl p-4 w-full md:w-5/12">
                 <div class="flex">
                     <h2 class="text-3xl">ค้นหาหอพัก</h2>
                 </div>
-                <div class="flex flex-row "> 
+                <div class="flex flex-row ">
                     <div class="w-1/3 p-4">
                         <div class="w-full center con-selects">
-                            <vs-select  calss="text-2xl" placeholder="ขนาดหอพัก" v-model="value">
+                            <vs-select calss="text-2xl" placeholder="ขนาดหอพัก" v-model="value">
                                 <vs-option label="Vuesax" value="1">
                                     Vuesax
                                 </vs-option>
@@ -86,10 +86,10 @@
                         </vs-select>
                     </div>
                 </div>
-                <div class="flex flex-row  "> 
+                <div class="flex flex-row  ">
                     <div class="w-1/3 p-4">
                         <div class="w-full center con-selects">
-                            <vs-select  calss="text-2xl" placeholder="ขนาดหอพัก" v-model="value">
+                            <vs-select calss="text-2xl" placeholder="ขนาดหอพัก" v-model="value">
                                 <vs-option label="Vuesax" value="1">
                                     Vuesax
                                 </vs-option>
@@ -165,12 +165,49 @@
                         </vs-select>
                     </div>
                     <div class="w-1/3 p-4">
-                    <vs-button type="filled" class="w-full "><span class="mdi mdi-feature-search-outline text-xl"></span><span class="text-lg">ค้นหา</span></vs-button>
-                 
+                        <vs-button type="filled" class="w-full "><span class="mdi mdi-feature-search-outline text-xl"></span><span class="text-lg">ค้นหา</span></vs-button>
+
                     </div>
                 </div>
             </div>
         </div>
+
+    </div>
+
+    <div class="container mx-auto mt-8">
+        <div class="flex flex-col justify-center items-center">
+            <h2 class="text-3xl">หอพัก</h2>
+        </div>
+        <div class="flex flex-row flex-wrap">
+            <div v-for="i in 20" :key="i" class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                <vs-card type="4">
+                    <template #title>
+                        <h3>Pot with a plant</h3>
+                    </template>
+                    <template #img>
+                        <img src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80" alt="">
+                    </template>
+                    <template #text>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        </p>
+                    </template>
+                    <template #interactions>
+                        <vs-button danger icon>
+                            <i class='bx bx-heart'></i>
+                        </vs-button>
+                        <vs-button class="btn-chat" shadow primary>
+                            <i class='bx bx-chat'></i>
+                            <span class="span">
+                                54
+                            </span>
+                        </vs-button>
+                    </template>
+                </vs-card>
+
+            </div>
+        </div>
+
     </div>
 </div>
 </template>
@@ -217,17 +254,20 @@ export default {
 };
 </script>
 
-<style  >
+<style>
 .bg-up {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background: url('https://www.up.ac.th/en/slide/f4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
-.vs-select__label{
-    font-size:16px!important;
+
+.vs-select__label {
+    font-size: 16px !important;
 }
-.vs-select-content{
-    max-width:100%!important;;
+
+.vs-select-content {
+    max-width: 100% !important;
+    ;
 }
 </style>

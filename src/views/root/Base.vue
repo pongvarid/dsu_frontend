@@ -1,17 +1,20 @@
  <template>
-  <div>
+  <div >
     <Navbar/>
+
     <router-view />
+ <Footers />
   </div>
 </template>
 
     <script>
     import Navbar from '@/components/share/Navbar';
+    import Footers from '@/components/share/Footer';
 export default {
   name: "Root",
   /*-------------------------ประกาศ components ---------------------------------------*/
   components: {
-    Navbar
+    Navbar,Footers
   },
   /*-------------------------รับค่าเมื่อเราเป็น components---------------------------------------*/
   props: {},
