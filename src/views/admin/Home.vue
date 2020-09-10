@@ -8,7 +8,9 @@
 
     <main class="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
         <section>
-            <h3 class="font-bold text-2xl">Welcome to Startup</h3>
+            <h3 class="font-bold text-2xl">
+              <pre>{{SIZES}}</pre>
+            </h3>
             <p class="text-gray-600 pt-2">Sign in to your account.</p>
         </section>
 
@@ -67,7 +69,8 @@ export default {
   },
   /*-------------------------ใช้จัดการ operation  หรือ คำนวณค่าต่างๆ (คล้าย methods)------------------------------------------*/
   computed: {
-    ...sync('test/*')
+    ...sync('test/*'),
+    ...sync('home/*')
   },
   /*-------------------------Methods------------------------------------------*/
   methods: {

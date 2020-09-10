@@ -10,28 +10,11 @@
                 <div class="flex flex-row ">
                     <div class="w-1/3 p-4">
                         <div class="w-full center con-selects">
-                            <vs-select calss="text-2xl" placeholder="ขนาดหอพัก" v-model="value">
-                                <vs-option label="Vuesax" value="1">
-                                    Vuesax
-                                </vs-option>
-                                <vs-option label="Vue" value="2">
-                                    Vue
-                                </vs-option>
-                                <vs-option label="Javascript" value="3">
-                                    Javascript
-                                </vs-option>
-                                <vs-option disabled label="Sass" value="4">
-                                    Sass
-                                </vs-option>
-                                <vs-option label="Typescript" value="5">
-                                    Typescript
-                                </vs-option>
-                                <vs-option label="Webpack" value="6">
-                                    Webpack
-                                </vs-option>
-                                <vs-option label="Nodejs" value="7">
-                                    Nodejs
-                                </vs-option>
+                            {{form}}
+                            <vs-select calss="text-2xl" placeholder="ขนาดหอพัก" v-model="form.size">
+                                <vs-option v-for="size,index in select" :key="index"  :label="size.name" :value="size.id">
+                                    {{size.name}}
+                                </vs-option> 
                             </vs-select>
                         </div>
                     </div>
@@ -228,6 +211,10 @@ export default {
         return {
             value: '',
             txt: "Hello World",
+            select:[],
+            form:{
+                size:'',
+            },
         };
     },
     /*------------------------- สิ่งทที่อยู่ในนี้จะถูกรัยเมื่อโหลด ------------------------------------------*/
@@ -241,14 +228,17 @@ export default {
     },
     /*-------------------------ใช้จัดการ operation  หรือ คำนวณค่าต่างๆ (คล้าย methods)------------------------------------------*/
     computed: {
-        ...sync('test/*')
+        ...sync('test/*'),
+        ...sync('home/*')
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
         ...call('test/*'),
+        ...call('home/*'),
         /******* Methods default run ******/
         load: async function () {
-            await this.testApi();
+             this.select = await this.getSize(); 
+            
         },
     },
 };
