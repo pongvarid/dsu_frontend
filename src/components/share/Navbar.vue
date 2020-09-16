@@ -28,7 +28,7 @@
                 </a>
             </div>
             <div>
-                <a href="#" class="no-underline inline-block text-sm px-4 py-2 leading-none border rounded text-purple-600 border-purple-600 hover:border-purple-300 hover:text-teal hover:bg-white mt-4 sm:mt-0">
+                <a href="https://dorm.dsq.up.ac.th/checkin/#/" class="no-underline inline-block text-sm px-4 py-2 leading-none border rounded text-purple-600 border-purple-600 hover:border-purple-300 hover:text-teal hover:bg-white mt-4 sm:mt-0">
 					UP CHECKIN
 					</a>
             </div>

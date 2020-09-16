@@ -1,155 +1,88 @@
 <template>
 <div class="bg-gray-200">
-    <div class="bg-up bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen  relative">
+    <div v-if="response" class="bg-up bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen  relative">
         <!-- Overlay Background + Center Control -->
         <div class="h-screen bg-opacity-50 bg-black flex items-center justify-center" style="background:rgba(0,0,0,0.3);">
             <div class="mx-2 text-center bg-white rounded-lg shadow-2xl p-4 w-full md:w-5/12">
                 <div class="flex">
-                    <h2 class="text-3xl">ค้นหาหอพัก</h2>
+                    <h2 class="text-3xl text-purple-600"><i class="em em-house_with_garden text-2xl" aria-role="presentation" aria-label="HOUSE WITH GARDEN"></i>&nbsp;&nbsp;ค้นหาหอพัก</h2>
                 </div>
-                <div class="flex flex-row ">
-                    <div class="w-1/3 p-4">
-                        <div class="w-full center con-selects">
-                            {{form}}
-                            <vs-select calss="text-2xl" placeholder="ขนาดหอพัก" v-model="form.size">
-                                <vs-option v-for="size,index in select" :key="index"  :label="size.name" :value="size.id">
-                                    {{size.name}}
-                                </vs-option> 
-                            </vs-select>
+                <div class="flex flex-row flex-wrap">
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="inline-block relative  w-full ">
+                            <select v-model="form.zone" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="0">โซนหอพัก</option>
+                                <option v-for="data,index in zone" :key="index" :label="data.value" :value="data.id">{{data.value}}</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                            </div>
                         </div>
                     </div>
-                    <div class="w-1/3 p-4">
-                        <vs-select placeholder="โซนหอพัก" v-model="value">
-                            <vs-option label="Vuesax" value="1">
-                                Vuesax
-                            </vs-option>
-                            <vs-option label="Vue" value="2">
-                                Vue
-                            </vs-option>
-                            <vs-option label="Javascript" value="3">
-                                Javascript
-                            </vs-option>
-                            <vs-option disabled label="Sass" value="4">
-                                Sass
-                            </vs-option>
-                            <vs-option label="Typescript" value="5">
-                                Typescript
-                            </vs-option>
-                            <vs-option label="Webpack" value="6">
-                                Webpack
-                            </vs-option>
-                            <vs-option label="Nodejs" value="7">
-                                Nodejs
-                            </vs-option>
-                        </vs-select>
-                    </div>
-                    <div class="w-1/3 p-4">
-                        <vs-select placeholder="ราคา" v-model="value">
-                            <vs-option label="Vuesax" value="1">
-                                Vuesax
-                            </vs-option>
-                            <vs-option label="Vue" value="2">
-                                Vue
-                            </vs-option>
-                            <vs-option label="Javascript" value="3">
-                                Javascript
-                            </vs-option>
-                            <vs-option disabled label="Sass" value="4">
-                                Sass
-                            </vs-option>
-                            <vs-option label="Typescript" value="5">
-                                Typescript
-                            </vs-option>
-                            <vs-option label="Webpack" value="6">
-                                Webpack
-                            </vs-option>
-                            <vs-option label="Nodejs" value="7">
-                                Nodejs
-                            </vs-option>
-                        </vs-select>
-                    </div>
-                </div>
-                <div class="flex flex-row  ">
-                    <div class="w-1/3 p-4">
-                        <div class="w-full center con-selects">
-                            <vs-select calss="text-2xl" placeholder="ขนาดหอพัก" v-model="value">
-                                <vs-option label="Vuesax" value="1">
-                                    Vuesax
-                                </vs-option>
-                                <vs-option label="Vue" value="2">
-                                    Vue
-                                </vs-option>
-                                <vs-option label="Javascript" value="3">
-                                    Javascript
-                                </vs-option>
-                                <vs-option disabled label="Sass" value="4">
-                                    Sass
-                                </vs-option>
-                                <vs-option label="Typescript" value="5">
-                                    Typescript
-                                </vs-option>
-                                <vs-option label="Webpack" value="6">
-                                    Webpack
-                                </vs-option>
-                                <vs-option label="Nodejs" value="7">
-                                    Nodejs
-                                </vs-option>
-                            </vs-select>
-                        </div>
-                    </div>
-                    <div class="w-1/3 p-4">
-                        <vs-select placeholder="โซนหอพัก" v-model="value">
-                            <vs-option label="Vuesax" value="1">
-                                Vuesax
-                            </vs-option>
-                            <vs-option label="Vue" value="2">
-                                Vue
-                            </vs-option>
-                            <vs-option label="Javascript" value="3">
-                                Javascript
-                            </vs-option>
-                            <vs-option disabled label="Sass" value="4">
-                                Sass
-                            </vs-option>
-                            <vs-option label="Typescript" value="5">
-                                Typescript
-                            </vs-option>
-                            <vs-option label="Webpack" value="6">
-                                Webpack
-                            </vs-option>
-                            <vs-option label="Nodejs" value="7">
-                                Nodejs
-                            </vs-option>
-                        </vs-select>
-                    </div>
-                    <div class="w-1/3 p-4">
-                        <vs-select placeholder="ราคา" v-model="value">
-                            <vs-option label="Vuesax" value="1">
-                                Vuesax
-                            </vs-option>
-                            <vs-option label="Vue" value="2">
-                                Vue
-                            </vs-option>
-                            <vs-option label="Javascript" value="3">
-                                Javascript
-                            </vs-option>
-                            <vs-option disabled label="Sass" value="4">
-                                Sass
-                            </vs-option>
-                            <vs-option label="Typescript" value="5">
-                                Typescript
-                            </vs-option>
-                            <vs-option label="Webpack" value="6">
-                                Webpack
-                            </vs-option>
-                            <vs-option label="Nodejs" value="7">
-                                Nodejs
-                            </vs-option>
-                        </vs-select>
-                    </div>
-                    <div class="w-1/3 p-4">
-                        <vs-button type="filled" class="w-full "><span class="mdi mdi-feature-search-outline text-xl"></span><span class="text-lg">ค้นหา</span></vs-button>
+                    <div class="w-full md:w-1/3 p-4">
 
+                        <div class="inline-block relative  w-full ">
+                            <select v-model="form.type" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="0">{{type[0].name}}</option>
+                                <option v-for="data,index in type" :key="index" :label="data.value" :value="data.id">{{data.value}}</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="inline-block relative  w-full ">
+                            <select v-model="form.room" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="0">{{room[0].name}}</option>
+                                <option v-for="data,index in room" :key="index" :label="data.value" :value="data.id">{{data.value}}</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="flex flex-row  flex-wrap">
+                    <div class="w-full md:w-1/3 p-4">
+
+                        <div class="inline-block relative  w-full ">
+                            <select v-model="form.food" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="0">{{food[0].name}}</option>
+                                <option v-for="data,index in food" :key="index" :label="data.value" :value="data.id">{{data.value}}</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="w-full md:w-1/3 p-4">
+
+                        <div class="inline-block relative  w-full ">
+                            <select v-model="form.pet" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="0">{{pet[0].name}}</option>
+                                <option v-for="data,index in pet" :key="index" :label="data.value" :value="data.id">{{data.value}}</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="w-full md:w-1/3 p-4">
+                        <button 
+                        class="block uppercase mx-auto shadow bg-indigo-800 hover:bg-indigo-700 focus:shadow-outline focus:outline-none text-white text-xs py-2 px-10 rounded">
+                            <span class="mdi mdi-feature-search-outline text-xl"></span><span class="text-lg">ค้นหา</span>
+                        </button>
+                     
                     </div>
                 </div>
             </div>
@@ -159,30 +92,30 @@
 
     <div class="container mx-auto mt-8">
         <div class="flex flex-col justify-center items-center">
-            <h2 class="text-3xl">หอพัก 4444</h2>
+            <h2 class="text-3xl">หอพัก</h2>
         </div>
         <div class="flex flex-row flex-wrap">
-            <div v-for="i in 20" :key="i" class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-                <vs-card type="4">
+            <div v-for="dorm,index in homeDorm" :key="index" class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                <vs-card type="4" >
                     <template #title>
-                        <h3>Pot with a plant</h3>
+                        <h3>{{dorm.name}}</h3>
                     </template>
                     <template #img>
                         <img src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80" alt="">
                     </template>
-                    <template #text>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    <template #text >
+                        <p >
+                           {{dorm.address}}
                         </p>
                     </template>
                     <template #interactions>
-                        <vs-button danger icon>
+                        <vs-button :color="(dorm.permission)?'success':'danger'" icon>
                             <i class='bx bx-heart'></i>
                         </vs-button>
                         <vs-button class="btn-chat" shadow primary>
                             <i class='bx bx-chat'></i>
                             <span class="span">
-                                54
+                               {{(dorm.permission)?'มีข้อมูลหอพัก':'ไม่มีข้อมูลหอพัก'}}
                             </span>
                         </vs-button>
                     </template>
@@ -211,10 +144,22 @@ export default {
         return {
             value: '',
             txt: "Hello World",
-            select:[],
-            form:{
-                size:'',
+            room:[],
+            size: [],
+            zone: [],
+            price: [],
+            type: [],
+            pet: [],
+            food: [],
+            form: {
+                type: 0,
+                pet: 0,
+                room: 0,
+                food: 0,
+                zone: 0,
             },
+            homeDorm:[],
+            response:false,
         };
     },
     /*------------------------- สิ่งทที่อยู่ในนี้จะถูกรัยเมื่อโหลด ------------------------------------------*/
@@ -237,8 +182,14 @@ export default {
         ...call('home/*'),
         /******* Methods default run ******/
         load: async function () {
-             this.select = await this.getSize(); 
-            
+            this.size = await this.getMetadata('ลักษณะของหอพัก');
+            this.zone = await this.getMetadata('โซนหอพัก');
+            this.type = await this.getMetadata('ประเภทของหอพัก');
+            this.pet = await this.getMetadata('เลี้ยงสัตว์เลี้ยงในหอพักได้หรือไม่');
+            this.food = await this.getMetadata('ทำอาหารในหอพักได้หรือไม่');
+            this.room = await this.getMetadata('ลักษณะการเข้าพักอาศัย');
+            this.homeDorm = await this.getHomeDorm();
+            this.response = true;
         },
     },
 };
@@ -258,6 +209,9 @@ export default {
 
 .vs-select-content {
     max-width: 100% !important;
-    ;
+     
+}
+.vs-card-content.type-4 .vs-card__text{
+     width: 100% !important;
 }
 </style>

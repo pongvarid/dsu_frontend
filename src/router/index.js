@@ -14,6 +14,11 @@ Vue.use(VueRouter)
         name: "Root-Home",
         component: () => import('../views/root/Home.vue') 
       },
+      {
+        path: "test",
+        name: "Root-test",
+        component: () => import('../views/root/Test.vue') 
+      },
     ]
   },
   {
@@ -24,6 +29,11 @@ Vue.use(VueRouter)
         path: "",
         name: "Admin-Home",
         component: () => import('../views/admin/Home.vue') 
+      },
+      {
+        path: "test",
+        name: "Admin-test",
+        component: () => import('../views/admin/Test.vue') 
       },
     ]
   }
