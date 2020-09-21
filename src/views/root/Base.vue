@@ -42,5 +42,15 @@ export default {
   },
 };
 </script>
-<style lang='postcss' scoped>
+<style>
+ 
+
+.vs-select__label {
+    font-size: 16px !important;
+}
+
+.vs-select-content {
+    max-width: 100% !important;
+    ;
+}
 </style>

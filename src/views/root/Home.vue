@@ -78,7 +78,7 @@
 
                     </div>
                     <div class="w-full md:w-1/3 p-4">
-                        <button 
+                        <button @click="$router.push('/dorm')"
                         class="block uppercase mx-auto shadow bg-indigo-800 hover:bg-indigo-700 focus:shadow-outline focus:outline-none text-white text-xs py-2 px-10 rounded">
                             <span class="mdi mdi-feature-search-outline text-xl"></span><span class="text-lg">ค้นหา</span>
                         </button>
@@ -96,12 +96,13 @@
         </div>
         <div class="flex flex-row flex-wrap">
             <div v-for="dorm,index in homeDorm" :key="index" class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-                <vs-card type="4" >
+                <vs-card type="4" @click="$router.push(`/detail?id=${dorm.id}`)" >
                     <template #title>
                         <h3>{{dorm.name}}</h3>
                     </template>
                     <template #img>
-                        <img src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80" alt="">
+                      <img class="h-64" v-if="dorm.image[0]" :src="'http://localhost:8000'+dorm.image[0].front" alt="">
+                        <img v-else src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80" alt="">
                     </template>
                     <template #text >
                         <p >

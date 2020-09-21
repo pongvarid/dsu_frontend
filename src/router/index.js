@@ -15,6 +15,19 @@ Vue.use(VueRouter)
         component: () => import('../views/root/Home.vue') 
       },
       {
+        path: "dorm",
+        name: "Dorm-Home",
+        component: () => import('../views/root/Dorm.vue') 
+      },{
+        path: "detail",
+        name: "detail-Home",
+        component: () => import('../views/root/DormDetail') 
+      },{
+        path: "about",
+        name: "about-Home",
+        component: () => import('../views/root/About') 
+      },
+      {
         path: "test",
         name: "Root-test",
         component: () => import('../views/root/Test.vue') 

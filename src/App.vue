@@ -38,3 +38,16 @@ export default {
   },
 };
 </script> 
+
+<style>
+ 
+
+.vs-select__label {
+    font-size: 16px !important;
+}
+
+.vs-select-content {
+    max-width: 100% !important;
+    ;
+}
+</style>

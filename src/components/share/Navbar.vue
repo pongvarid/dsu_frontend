@@ -14,16 +14,16 @@
         </div>
         <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
             <div class="text-sm sm:flex-grow">
-                <a href="#responsive-header" class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-purple-300  text-lg mr-4 ml-4">
+                <a @click="$router.push('/')" href="#" class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-purple-300  text-lg mr-4 ml-4">
                     หน้าแรก
                 </a>
-                <a href="#responsive-header" class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-purple-300   text-lg mr-4">
+                <a @click="$router.push('/dorm')" href="#" class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-purple-300   text-lg mr-4">
                     หอพัก
                 </a>
-                <a href="#responsive-header" class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-purple-300   text-lg mr-4">
+                <a @click="beta()" href="#" class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-purple-300   text-lg mr-4">
                     แผนที่โซน
                 </a>
-				 <a href="#responsive-header" class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-purple-300  text-lg mr-4">
+				 <a @click="$router.push('/about')" href="#" class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-purple-300  text-lg mr-4">
                     เกี่ยวกับ
                 </a>
             </div>
@@ -74,6 +74,7 @@ export default {
         toggle() {
             this.open = !this.open
         },
+        beta(){alert('ยังไม่เปิดให้บริการค่ะ')},
         /******* Methods default run ******/
         load: async function () {}
     },
