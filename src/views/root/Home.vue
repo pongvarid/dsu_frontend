@@ -101,7 +101,7 @@
                         <h3>{{dorm.name}}</h3>
                     </template>
                     <template #img>
-                      <img class="h-64" v-if="dorm.image[0]" :src="'http://localhost:8000'+dorm.image[0].front" alt="">
+                      <img class="h-64" v-if="dorm.image[0]" :src="dorm.image[0].front" alt="">
                         <img v-else src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80" alt="">
                     </template>
                     <template #text >
