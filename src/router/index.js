@@ -32,6 +32,11 @@ Vue.use(VueRouter)
         name: "Root-test",
         component: () => import('../views/root/Test.vue') 
       },
+      {
+        path: "map",
+        name: "Dorm-map",
+        component: () => import('../views/root/Map.vue') 
+      }
     ]
   },
   {

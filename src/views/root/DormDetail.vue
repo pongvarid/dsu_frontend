@@ -1,99 +1,167 @@
 <template>
-<div class="h-auto w-screen bg-gray-100    items-center"><br><br><br><br><br><br><br>
-    <main >
-        <div class="container mx-auto px-6 mt-6">
-            <div class="md:flex md:items-center">
-                <div class="w-full h-64 md:w-1/2 lg:h-96">
-                    <img class="h-full w-full rounded-md object-cover max-w-lg mx-auto" 
-                    :src="DETAIL.image[0].front" alt="Nike Air">
-                </div>
-                <div class="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2">
-                    <h3 class="text-gray-700 uppercase text-2xl">{{DETAIL.name}}</h3>
-                    <span class="text-gray-500 mt-3">{{DETAIL.address}}</span>
-                    <span class="text-gray-500 mt-3">ตำบลแม่กา อำเภอเมืองพะเยา จังหวัดพะเยา 56000</span>
-                    <hr class="my-3">
-                    <div class="mt-2">
-                        <label class="text-gray-700 text-sm" for="count">ผู้ดูแล</label>
-                        <div class="flex flex-col">
-                           <div v-for="owner,i in DETAIL.owner">
-                          
-                               <h3 class="text-xl">{{owner.name}}</h3>
-                                <h3>{{owner.type}}</h3>
-                           </div>
+<div class="" v-if='response'>
+
+    <div class="locations bgimg-1 ">
+
+        <div class="super_overlay"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col"><br><br>
+                    <div class="section_title text-center ">
+                        <h1 class="w3-text-white  w3-xxxlarge">{{DETAIL.name}}</h1>
+                    </div>
+                    <div class="search_form_container">
+                        <div class="search_form" id="search_form">
+                            <div class="">
+
+                                <h2 class="w3-text-white w3-xlarge">{{DETAIL.address}}</h2>
+                                <p class="w3-text-white w3-large">ตำบลแม่กา อำเภอเมืองพะเยา จังหวัดพะเยา 56000</p>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-3">
-                        <label class="text-gray-700 text-sm" for="count">ติดต่อ</label>
-                         <pre>{{DETAIL.tel}}</pre>
-                    </div>
-                    <div class="flex items-center mt-6">
-                        <!-- <button class="px-8 py-2 bg-indigo-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500">Order Now</button>
-                        <button class="mx-2 text-gray-600 border rounded-md p-2 hover:bg-gray-200 focus:outline-none">
-                            <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-                        </button> -->
-                    </div>
+
+                    <br><br>
+
                 </div>
+               
             </div>
-            <div class="mt-16">
-                <h3 class="text-gray-600 text-2xl font-medium"> สิ่งอำนวยความสะดวก</h3>
-                <div class="" v-for="style,ley in  DETAIL.style" :key="ley">
-                    <h3>- {{style}}</h3>
-                </div>
-                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6" v-for="img,inx in DETAIL.image" :key="inx">
-                    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden h-56">
-                        <div class="flex items-end justify-end h-56 w-full bg-cover" 
-                        :style="`background-image: url('${img.front}')`">
-                         
+        </div><br>
+    </div>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col"><br><br><br><br>
+                    <div class="section_title text-center ">
+                        <h1 class=" w3-xxlarge w3-text-blue"><i class="em em-female-astronaut" aria-role="presentation" aria-label=""></i> ผู้ดูแลหอพัก {{DETAIL.name}}</h1>
+                    </div>
+                    <div class="search_form_container">
+                        <div class="search_form" id="search_form">
+                            <div class="">
+                                
+                                <div v-for="owner,i in DETAIL.owner">
+
+                                    <h3 class="text-xl">{{owner.name}}</h3>
+                                    <h3>{{owner.type}}</h3>
+                                </div>
+                                <h3 class="w3-large">ติดต่อ : {{DETAIL.tel}}</h3>
+                            </div>
                         </div>
                     </div>
-                    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden h-56">
-                        <div class="flex items-end justify-end h-56 w-full bg-cover" 
-                        :style="`background-image: url('${img.all_dorm}')`">
-                         
-                        </div>
-                    </div>
-                    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden h-56">
-                        <div class="flex items-end justify-end h-56 w-full bg-cover" 
-                        :style="`background-image: url('${img.front_room}')`">
-                         
-                        </div>
-                    </div>
-                    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden h-56">
-                        <div class="flex items-end justify-end h-56 w-full bg-cover" 
-                        :style="`background-image: url('${img.in_room}')`">
-                         
-                        </div>
-                    </div>
-                    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden h-56">
-                        <div class="flex items-end justify-end h-56 w-full bg-cover" 
-                        :style="`background-image: url('${img.closet}')`">
-                         
-                        </div>
-                    </div>
-                    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden h-56">
-                        <div class="flex items-end justify-end h-56 w-full bg-cover" 
-                        :style="`background-image: url('${img.bed}')`">
-                         
-                        </div>
-                    </div>
-                    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden h-56">
-                        <div class="flex items-end justify-end h-56 w-full bg-cover" 
-                        :style="`background-image: url('${img.wc}')`">
-                         
-                        </div>
-                    </div>
-                    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden h-56">
-                        <div class="flex items-end justify-end h-56 w-full bg-cover" 
-                        :style="`background-image: url('${img.car}')`">
-                         
-                        </div>
-                    </div> 
-                     
+                    <br><br>
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col"><br><br>
+                    <div class="section_title text-center ">
+                        <h1 class=" w3-xxlarge w3-text-orange"><i class="em em-smiling_face_with_3_hearts" aria-role="presentation" aria-label="SMILING FACE WITH SMILING EYES AND THREE HEARTS"></i> สิ่งอำนวยความสะดวก</h1>
+                    </div>
+                    <div class="search_form_container">
+                        <div class="search_form" id="search_form">
+                            <div class="">
+                                <div class="container row">
+                                    <div class="col-md-6 col-xs-12" v-for="style,ley in  DETAIL.style" :key="ley">
+                                        <h3 style="font:16px;"><b>{{(style[0] != "สิ่งอำนวยความสะดวกภายในหอพัก ")?style[0]+" : ":'' }}</b> {{style[1]}}</h3>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        <h3 class="text-gray-600 text-2xl font-medium"></h3>
+ 
+
+        <div class="section_title text-center ">
+            <h1 class=" w3-xxlarge w3-text-purple"><i class="em em-camera" aria-role="presentation" aria-label="CAMERA"></i> รูปภาพหอพัก {{DETAIL.name}}</h1>
+        </div>
+        <div class="locations w3-padding-24">
+
+            <div class="locations_container d-flex flex-row align-items-start justify-content-between flex-wrap" v-for="img,inx in DETAIL.image" :key="inx">
+
+                <div class="location w3-round-large">
+                    <img height="250" class="w-p w3-round-large" :src="'https://dorm.dsq.up.ac.th/'+img.front" alt="">
+                    <!-- <div class="location_title text-center">
+                        <div>
+                            <h3>รูปภาพหอพัก</h3>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="location">
+                    <img height="250" class="w-p w3-round-large" :src="'https://dorm.dsq.up.ac.th/'+img.all_dorm" alt="">
+                    <!-- <div class="location_title text-center">
+                        <div>
+                            <h3>รูปภาพหอพัก</h3>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="location">
+                    <img height="250" class="w-p w3-round-large" :src="'https://dorm.dsq.up.ac.th/'+img.front_room" alt="">
+                    <!-- <div class="location_title text-center">
+                        <div>
+                            <h3>รูปภาพหอพัก</h3>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="location">
+                    <img height="250" class="w-p w3-round-large" :src="'https://dorm.dsq.up.ac.th/'+img.in_room" alt="">
+                    <!-- <div class="location_title text-center">
+                        <div>
+                            <h3>รูปภาพหอพัก</h3>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="location">
+                    <img height="250" class="w-p w3-round-large" :src="'https://dorm.dsq.up.ac.th/'+img.closet" alt="">
+                    <!-- <div class="location_title text-center">
+                        <div>
+                            <h3>รูปภาพหอพัก</h3>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="location">
+                    <img height="250" class="w-p w3-round-large" :src="'https://dorm.dsq.up.ac.th/'+img.bed" alt="">
+                    <!-- <div class="location_title text-center">
+                        <div>
+                            <h3>รูปภาพหอพัก</h3>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="location">
+                    <img height="250" class="w-p w3-round-large" :src="'https://dorm.dsq.up.ac.th/'+img.wc" alt="">
+                    <!-- <div class="location_title text-center">
+                        <div>
+                            <h3>รูปภาพหอพัก</h3>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="location">
+                    <img height="250" class="w-p w3-round-large" :src="'https://dorm.dsq.up.ac.th/'+img.car" alt="">
+                    <!-- <div class="location_title text-center">
+                        <div>
+                            <h3>รูปภาพหอพัก</h3>
+                        </div>
+                    </div> -->
+                </div>
+                
+
+            </div>
+
+                
+        </div>
+         <GmapMap class="ximg rounded shadow-lg " :center="{lat:Number(DETAIL.latitude), lng:Number(DETAIL.longitude)}" :zoom="19">
+                        <GmapMarker :key="index" v-for="(m, index) in 1" :position="{
+                        lat: Number(DETAIL.latitude),
+                        lng: Number(DETAIL.longitude)
+                    }" :clickable="true" :draggable="true" @click="center=m.position" />
+                    </GmapMap> 
+
     </main>
 </div>
 </template>
@@ -116,7 +184,9 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
+            zoom: ENV.MAP_ZOOM,
             txt: "Hello World",
+            response: false,
         };
     },
     /*------------------------- สิ่งทที่อยู่ในนี้จะถูกรัยเมื่อโหลด ------------------------------------------*/
@@ -144,6 +214,7 @@ export default {
             let id = this.$route.query.id;
 
             await this.getDetail(id)
+            this.response = true;
 
         },
     },
@@ -158,5 +229,26 @@ export default {
 .vs-select-content {
     max-width: 100% !important;
     ;
+}
+
+.bgimg-1 {
+    background-image: url('https://www.img.in.th/images/6a26eaafbc26b0aea0a4741587d537d3.jpg');
+    min-height: 100%;
+}
+ 
+
+.bgimg-1,
+.bgimg-2,
+.bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ximg {
+   
+    width: 100%;
+    height: 600px!important;
 }
 </style>

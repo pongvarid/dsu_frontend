@@ -1,7 +1,9 @@
 <template>
-<div class="bg-gray-200">
-    <div v-if="response" class="bg-up bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen  relative">
-        <!-- Overlay Background + Center Control -->
+<div  >
+<BigMenu/>
+
+    <!-- <div v-if="response" class="bg-up bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen  relative">
+    
         <div class="h-screen bg-opacity-50 bg-black flex items-center justify-center" style="background:rgba(0,0,0,0.3);">
             <div class="mx-2 text-center bg-white rounded-lg shadow-2xl p-4 w-full md:w-5/12">
                 <div class="flex">
@@ -95,13 +97,13 @@
             <h2 class="text-3xl">หอพัก</h2>
         </div>
         <div class="flex flex-row flex-wrap">
-            <div v-for="dorm,index in homeDorm" :key="index" class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <div v-for="dorm,index in homeDorm" :key="index" class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" v-if="dorm.permission">
                 <vs-card type="4" @click="$router.push(`/detail?id=${dorm.id}`)" >
                     <template #title>
                         <h3>{{dorm.name}}</h3>
                     </template>
                     <template #img>
-                      <img class="h-64" v-if="dorm.image[0]" :src="dorm.image[0].front" alt="">
+                      <img class="h-64" v-if="dorm.image[0]" :src="'https://dorm.dsq.up.ac.th/'+dorm.image[0].front" alt="">
                         <img v-else src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80" alt="">
                     </template>
                     <template #text >
@@ -109,23 +111,18 @@
                            {{dorm.address}}
                         </p>
                     </template>
-                    <template #interactions>
-                        <vs-button :color="(dorm.permission)?'success':'danger'" icon>
-                            <i class='bx bx-heart'></i>
-                        </vs-button>
-                        <vs-button class="btn-chat" shadow primary>
-                            <i class='bx bx-chat'></i>
-                            <span class="span">
-                               {{(dorm.permission)?'มีข้อมูลหอพัก':'ไม่มีข้อมูลหอพัก'}}
-                            </span>
-                        </vs-button>
+                    <template #interactions> 
                     </template>
                 </vs-card>
 
             </div>
         </div>
 
-    </div>
+    </div> -->
+  
+    <Lastest />
+      <Gallery />
+    <Checkin />
 </div>
 </template>
 
@@ -134,10 +131,14 @@ import {
     sync,
     call
 } from 'vuex-pathify'
+import BigMenu from '@/components/root/Home/BigMenu';
+import Checkin from '@/components/root/Home/Checkin';
+import Lastest from '@/components/root/Home/Lastest';
+import Gallery from '@/components/root/Home/Gallery';
 export default {
     name: "Root",
     /*-------------------------ประกาศ components ---------------------------------------*/
-    components: {},
+    components: {BigMenu,Checkin,Lastest,Gallery},
     /*-------------------------รับค่าเมื่อเราเป็น components---------------------------------------*/
     props: {},
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/

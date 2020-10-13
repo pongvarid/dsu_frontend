@@ -8,6 +8,7 @@ const state = {
     SEARCH: '',
     DETAIL: {},
     ABOUT: {},
+    MAPMARK:[],
 };
 const getters = {};
 
@@ -69,7 +70,17 @@ const actions = {
             });
         state.ABOUT = data;
         return data;
-    },
+    }, 
+    async getMapMark(context, zone){
+        let data = await axios.get(`/api/dorm/getlatlong/${zone}`)
+            .then((r) => {
+                return r.data;
+            }).catch((e) => {
+                return false;
+            });
+        state.MAPMARK = data;
+        return data
+    }
 
 
 };
